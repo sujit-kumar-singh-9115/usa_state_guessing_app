@@ -1,22 +1,20 @@
+# importing the required package
 import turtle
 import pandas as pd
 
+# creating the screen to show the map
 screen = turtle.Screen()
 screen.title('u. s. states game')
 image = 'blank_states_img.gif'
 screen.addshape(image)
 
 turtle.shape(image)
-# def get_mouse_click_coor(x,y):
-#     print(x,y)
-#
-# turtle.onscreenclick(get_mouse_click_coor)
-#
-# turtle.mainloop()
+# reading the csv file
 df = pd.read_csv('50_states.csv')
 all_states = df['state'].to_list()
 guessed_states = []
 
+# running the loop
 while len(guessed_states) < 50:
     answer_state = screen.textinput(title=f'{len(guessed_states)}/50 Guessed state', prompt='What the next state name')
     answer_state = str(answer_state).title()
